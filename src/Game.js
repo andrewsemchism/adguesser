@@ -8,10 +8,13 @@ class Game extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      homepage: true,
+    /*
+    homepage: true,
       ingame: false,
       playagain: false,
+      */
+    this.state = {
+      page: "homepage",
       highscore: 5,
     };
     this.handleChangeScreen = this.handleChangeScreen.bind(this);
@@ -19,23 +22,17 @@ class Game extends React.Component {
 
   handleChangeScreen() {
     this.setState(prevState => {
-      if (prevState.homepage) {
+      if (prevState.page === "homepage") {
         return {
-          homepage: false,
-          ingame: true,
-          playagain: false
+          page: "ingame"
         }
-      } else if (prevState.ingame) {
+      } else if (prevState.page === "ingame") {
         return {
-          homepage: false,
-          ingame: false,
-          playagain: true
+          page: "playagain"
         }
-      } else if ( prevState.playagain) {
+      } else if (prevState.page === "playagain") {
         return {
-          homepage: false,
-          ingame: true,
-          playagain: false
+          page: "ingame"
         }
       }
     });
@@ -43,17 +40,17 @@ class Game extends React.Component {
 
   render() {
     // Need to have 3 game states: Homepage, playing stage, and ending stage
-    if ( this.state.homepage) {
+    if ( this.state.page === "homepage") {
       return (
         <Homepage changeScreen={this.handleChangeScreen}/>
       );
     }
-    if ( this.state.ingame ) {
+    if ( this.state.page === "ingame" ) {
       return (
         <Ingame highscore={this.state.highscore}/>
       );
     }
-    if (this.state.playagain) {
+    if (this.state.page === "playagain") {
       // Need to add playagain component
     }
   }
