@@ -12,7 +12,6 @@ class Ingame extends React.Component {
       roundState: "new",
       currentWord: "towel",
       oldWord: "wallet",
-      currentScore: 0
     };
     this.handleAnswer = this.handleAnswer.bind(this);
   }
@@ -76,14 +75,15 @@ class Ingame extends React.Component {
     this.setState(prevState => {
       if (this.correct(answer, prevState.oldWord, prevState.currentWord)) {
         let genNewWord = this.getNewWord();
+        this.props.incrementScore()
         return {
           roundState: "new",
           oldWord: prevState.currentWord,
           currentWord: genNewWord,
-          currentScore: prevState.currentScore + 1
         }
       } else {
         this.props.changeScreen();
+        this.props.clearScore();
         return {
           roundState: "lose"
         }
@@ -100,7 +100,7 @@ class Ingame extends React.Component {
   render() {
       return (
         <div>
-          <Scorebar highscore={this.props.highscore} score={this.state.currentScore}/>
+          <Scorebar highscore={this.props.highscore} score={this.props.currentscore}/>
           <Panel name={this.state.oldWord} number={this.getNumber(this.state.oldWord)} current={false} handleAnswer={this.handleAnswer}/>
           <Panel name={this.state.currentWord} number={this.getNumber(this.state.currentWord)} current={true} handleAnswer={this.handleAnswer}/>
           <h1>In Game!!!</h1>

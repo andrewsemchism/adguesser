@@ -9,16 +9,14 @@ class Game extends React.Component {
 
   constructor(props) {
     super(props);
-    /*
-    homepage: true,
-      ingame: false,
-      playagain: false,
-      */
     this.state = {
       page: "homepage",
-      highscore: 5,
+      currentscore: 0,
+      highscore: 0,
     };
     this.handleChangeScreen = this.handleChangeScreen.bind(this);
+    this.clearScore = this.clearScore.bind(this);
+    this.incrementScore = this.incrementScore.bind(this);
   }
 
   handleChangeScreen() {
@@ -39,6 +37,27 @@ class Game extends React.Component {
     });
   }
 
+  clearScore() {
+    this.setState({
+      currentscore: 0
+    })
+  }
+
+  incrementScore() {
+    this.setState(prevState => {
+      if (prevState.currentscore + 1 >= prevState.highscore) {
+        return {
+          currentscore: prevState.currentscore + 1,
+          highscore: prevState.currentscore + 1
+        }
+      } else {
+        return {
+          currentscore: prevState.currentscore + 1
+        }
+      }
+    })
+  }
+
   render() {
     // Need to have 3 game states: Homepage, playing stage, and ending stage
     if ( this.state.page === "homepage") {
@@ -48,12 +67,12 @@ class Game extends React.Component {
     }
     if ( this.state.page === "ingame" ) {
       return (
-        <Ingame highscore={this.state.highscore} changeScreen={this.handleChangeScreen}/>
+        <Ingame highscore={this.state.highscore} currentscore={this.state.currentscore} changeScreen={this.handleChangeScreen} clearScore={this.clearScore} incrementScore={this.incrementScore}/>
       );
     }
     if (this.state.page === "playagain") {
       return (
-        <Playagain highscore={this.state.highscore} changeScreen={this.handleChangeScreen}/>
+        <Playagain highscore={this.state.highscore} currentscore={this.state.currentscore} changeScreen={this.handleChangeScreen}/>
       );
     }
   }
