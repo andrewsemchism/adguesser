@@ -1,6 +1,7 @@
 import './Game.css';
 import Homepage from './Homepage'
 import Ingame from './Ingame'
+import Playagain from './Playagain'
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -47,11 +48,13 @@ class Game extends React.Component {
     }
     if ( this.state.page === "ingame" ) {
       return (
-        <Ingame highscore={this.state.highscore}/>
+        <Ingame highscore={this.state.highscore} changeScreen={this.handleChangeScreen}/>
       );
     }
     if (this.state.page === "playagain") {
-      // Need to add playagain component
+      return (
+        <Playagain highscore={this.state.highscore} changeScreen={this.handleChangeScreen}/>
+      );
     }
   }
 }

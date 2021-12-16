@@ -12,7 +12,7 @@ class Ingame extends React.Component {
       roundState: "new",
       currentWord: "towel",
       oldWord: "wallet",
-      currentScore: 2
+      currentScore: 0
     };
     this.handleAnswer = this.handleAnswer.bind(this);
   }
@@ -46,19 +46,8 @@ class Ingame extends React.Component {
   ];
 
   correct(answer, oldWord, currentWord) {
-    let oldWordNum = 0;
-    let currentWordNum = 0;
-    for(var i = 0; i < this.data.length; i++)
-    {
-      if(this.data[i].name === oldWord)
-      {
-        oldWordNum = this.data[i].number;
-      }
-      if(this.data[i].name === currentWord)
-      {
-        currentWordNum = this.data[i].number ;
-      }
-    }
+    let oldWordNum = this.getNumber(oldWord);
+    let currentWordNum =  this.getNumber(currentWord);
     if (answer === "higher" && currentWordNum >= oldWordNum) {
       return true;
     } else if (answer === "lower" && currentWordNum <= oldWordNum) {
@@ -94,6 +83,7 @@ class Ingame extends React.Component {
           currentScore: prevState.currentScore + 1
         }
       } else {
+        this.props.changeScreen();
         return {
           roundState: "lose"
         }
