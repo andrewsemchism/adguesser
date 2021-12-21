@@ -5,9 +5,10 @@ class Homepage extends React.Component {
 
   render() {
       return (
-        <div>
-          <h1>This is the homepage.</h1>
-          <button onClick={this.props.changeScreen}></button>
+        <div className='background'>
+          <div className='logo'></div>
+          <h3 class='header'>Which item has more listings on Kijiji?</h3>
+          <button id='play-btn' className='btn btn-dark' onClick={this.props.changeScreen}>Play ▶</button>
         </div>
         
       );
