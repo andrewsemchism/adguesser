@@ -116,7 +116,6 @@ class Ingame extends React.Component {
           }
         } else {
           this.props.changeScreen();
-          this.props.clearScore();
           return {
             roundState: "lose",
             vs: "vs"

@@ -23,6 +23,7 @@ class Game extends React.Component {
     this.setState(prevState => {
       if (prevState.page === "homepage") {
         return {
+          currentscore: 0,
           page: "ingame"
         }
       } else if (prevState.page === "ingame") {
@@ -31,6 +32,7 @@ class Game extends React.Component {
         }
       } else if (prevState.page === "playagain") {
         return {
+          currentscore: 0,
           page: "ingame"
         }
       }
