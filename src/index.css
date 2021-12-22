@@ -224,6 +224,10 @@ body {
   transition-duration: 0.4s;
 }
 
-.hide-num {
-  display:none;
+#reveal {
+  display: none;
+}
+
+#show-buttons {
+  display: flex;
 }

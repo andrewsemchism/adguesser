@@ -1,6 +1,7 @@
 import React from 'react';
 import Scorebar from './Scorebar'
 import Panel from './Panel'
+import { CountUp } from 'countup.js';
 import ReactDOM from 'react-dom';
 
 class Ingame extends React.Component {
@@ -16,15 +17,6 @@ class Ingame extends React.Component {
     this.handleAnswer = this.handleAnswer.bind(this);
   }
 
-
-  // Ingame logic
-  // - We need to have two sides open - left and right
-  // - right side needs to have the higher or lower buttons
-  // - have a click handler the button (pass the value of the button through)
-  // - See if the user selected the correct button in this class
-  // 
-
-  // I need the data first before I start working
   data = [
     {
       "name": "Towel",
@@ -43,6 +35,11 @@ class Ingame extends React.Component {
       "number": 9480
     }
   ];
+
+  formatNumer(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
 
   correct(answer, oldWord, currentWord) {
     let oldWordNum = this.getNumber(oldWord);
@@ -72,24 +69,40 @@ class Ingame extends React.Component {
 
   handleAnswer(e) {
     let answer = e.currentTarget.value;
-    document.querySelector('.hide-num').style.display = 'block';
-    this.setState(prevState => {
-      if (this.correct(answer, prevState.oldWord, prevState.currentWord)) {
-        let genNewWord = this.getNewWord();
-        this.props.incrementScore()
-        return {
-          roundState: "new",
-          oldWord: prevState.currentWord,
-          currentWord: genNewWord,
-        }
+    let num = document.querySelector('#reveal-num').innerHTML;
+      const options = {
+        duration: 1,
+      };
+      let demo = new CountUp('reveal-num', num, options);
+      if (!demo.error) {
+        demo.start();
       } else {
-        this.props.changeScreen();
-        this.props.clearScore();
-        return {
-          roundState: "lose"
-        }
+        console.error(demo.error);
       }
-    });
+    document.querySelector('#reveal').style.display = 'flex';
+    document.querySelector('#show-buttons').style.display = 'none';
+    setTimeout(() => {
+      document.querySelector('#reveal').style.display = 'none';
+      document.querySelector('#show-buttons').style.display = 'flex';
+      this.setState(prevState => {
+        if (this.correct(answer, prevState.oldWord, prevState.currentWord)) {
+          let genNewWord = this.getNewWord();
+          this.props.incrementScore()
+          return {
+            roundState: "new",
+            oldWord: prevState.currentWord,
+            currentWord: genNewWord,
+          }
+        } else {
+          this.props.changeScreen();
+          this.props.clearScore();
+          return {
+            roundState: "lose"
+          }
+        }
+      });
+    }, 3000);
+    
   }
 
 
