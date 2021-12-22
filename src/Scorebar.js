@@ -6,7 +6,7 @@ class Scorebar extends React.Component {
       return (
         <div className='scorebar d-flex justify-content-between'>
           <h4>Highscore: {this.props.highscore}</h4>
-          <h4>Score: {this.props.score}</h4>
+          <h4 key={this.props.score} className='current-score'>Score: {this.props.score}</h4>
         </div>
         
       );

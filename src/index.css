@@ -108,6 +108,16 @@ body {
     z-index: 2;
 }
 
+.current-score {
+  animation: grow 1s;
+}
+
+@keyframes grow {
+  0% { transform: scale(1); }
+  80% { transform: scale(2); }
+  100% { transform: scale(1); }
+}
+
 /* Ingame */
 
 .divider {
@@ -130,12 +140,16 @@ body {
   height: 100%;
 }
 
+.panel > * {
+  z-index: 1;
+}
+
 .panel-1 {
-  background-color: #59616b;
+  background-color: #000000;
 }
 
 .panel-2 {
-  background-color: #4c5766;
+  background-color: #000000;
 }
 
 .vs {
@@ -153,6 +167,7 @@ body {
   text-transform: uppercase;
   overflow: hidden;
   z-index: 2;
+  transition: background-color 300ms linear;
 }
 
 .vs-text {
@@ -162,6 +177,14 @@ body {
   color: #000;
   font-size: 1.25rem;
   font-weight: 700;
+}
+
+.vs-win {
+  background-color: green;
+}
+
+.vs-lose {
+  background-color: red;
 }
 
 .name {
@@ -230,4 +253,14 @@ body {
 
 #show-buttons {
   display: flex;
+}
+
+#dimmer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(24, 15, 15, 0.7);
+  z-index: 1;
 }

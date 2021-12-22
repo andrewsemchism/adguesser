@@ -1,6 +1,7 @@
 import React from 'react';
 import Scorebar from './Scorebar'
 import Panel from './Panel'
+import Vs from './Vs'
 import { CountUp } from 'countup.js';
 import ReactDOM from 'react-dom';
 
@@ -13,6 +14,7 @@ class Ingame extends React.Component {
       roundState: "new",
       currentWord: "Towel",
       oldWord: "Wallet",
+      vs: "vs"
     };
     this.handleAnswer = this.handleAnswer.bind(this);
   }
@@ -68,8 +70,10 @@ class Ingame extends React.Component {
   }
 
   handleAnswer(e) {
+    // Get answer
     let answer = e.currentTarget.value;
-    let num = document.querySelector('#reveal-num').innerHTML;
+    // Reveal answer and show count up animation
+    let num = document.querySelector('#reveal-num').innerHTML.replace(/,/g, '');;
       const options = {
         duration: 1,
       };
@@ -81,6 +85,22 @@ class Ingame extends React.Component {
       }
     document.querySelector('#reveal').style.display = 'flex';
     document.querySelector('#show-buttons').style.display = 'none';
+    // Evaluate answer and show win/lose animation
+    setTimeout(() => {
+      this.setState(prevState => {
+        if (this.correct(answer, prevState.oldWord, prevState.currentWord)) {
+            return {
+              vs: "win"
+            }
+          } else {
+            return {
+              vs: "lose"
+            }
+          }
+        }
+      )
+    }, 1100);
+    // Evaluate answer and switch screens
     setTimeout(() => {
       document.querySelector('#reveal').style.display = 'none';
       document.querySelector('#show-buttons').style.display = 'flex';
@@ -92,12 +112,14 @@ class Ingame extends React.Component {
             roundState: "new",
             oldWord: prevState.currentWord,
             currentWord: genNewWord,
+            vs: "vs"
           }
         } else {
           this.props.changeScreen();
           this.props.clearScore();
           return {
-            roundState: "lose"
+            roundState: "lose",
+            vs: "vs"
           }
         }
       });
@@ -115,12 +137,9 @@ class Ingame extends React.Component {
       return (
         <div>
           <Scorebar highscore={this.props.highscore} score={this.props.currentscore}/>
-          <div className='vs'>
-            <div className='vs-text'>
-              vs
-            </div>
-          </div>
+          <Vs view={this.state.vs}></Vs>
           <div className='panels d-flex'>
+            <div id="dimmer"></div>
             <Panel name={this.state.oldWord} number={this.getNumber(this.state.oldWord)} current={false} handleAnswer={this.handleAnswer}/>
             <Panel name={this.state.currentWord} oldWord={this.state.oldWord} number={this.getNumber(this.state.currentWord)} current={true} handleAnswer={this.handleAnswer}/>
           </div>
