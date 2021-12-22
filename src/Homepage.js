@@ -7,8 +7,8 @@ class Homepage extends React.Component {
       return (
         <div className='background'>
           <div className='logo'></div>
-          <h3 class='header'>Which item has more listings on Kijiji?</h3>
-          <button id='play-btn' className='btn btn-dark' onClick={this.props.changeScreen}>Play ▶</button>
+          <h3 className='header'>Which item has more listings on Kijiji?</h3>
+          <button id='play-btn' className='btn btn-dark' onClick={this.props.changeScreen}><span id='play-txt'>Play</span><span id='play-symbol'>▶</span></button>
         </div>
         
       );

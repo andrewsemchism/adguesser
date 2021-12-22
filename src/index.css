@@ -1,18 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@500&display=swap');
 
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Fredoka One', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 
 * {
   margin: 0;
   padding: 0;
 }
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Homepage */
 
 .background {
   background-image: url('../public/images/homepage.png');
@@ -26,8 +32,6 @@ body {
   text-align: center;
 }
 
-
-
 .logo {
   background-image: url(../public/images/adguesserlogo.png);
   background-size: 20em 12em;
@@ -40,16 +44,186 @@ body {
 }
 
 .header {
+  font-family: 'Fredoka One', cursive;
   color: white;
   font-size: 2rem;
   padding-bottom: 2rem;
 }
 
 #play-btn {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Fredoka One', cursive;
   width: 200px;
   height: 80px;
   font-size: 20px;
   background-color: #173256;
   border-radius: 15px;
+}
+
+#play-symbol {
+  margin-left: 5px;
+}
+
+#play-btn:hover #play-symbol {
+  transition: all 0.2s ease-in-out;
+  margin-left: 30px
+}
+
+#play-btn:hover #play-txt {
+  transition: all 0.2s ease-in-out;
+  margin-left: 30px
+}
+
+
+/* Homepage Mobile */
+
+@media screen and (max-width: 480px) {
+  .logo {
+    background-size: 13em 8em;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    margin-top: 6rem;
+    display: inline-block;
+    height: 8em;
+    width: 13em;
+  }
+  .header {
+    color: white;
+    font-size: 2rem;
+    padding-bottom: 14rem;
+  }
+}
+
+
+/* Scoreboard CSS */
+
+.scorebar {
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    position: fixed;
+    bottom: 0%;
+    left: 0px;
+    right: 0px;
+    margin: 0 auto;
+    width: 90%;
+    z-index: 2;
+}
+
+/* Ingame */
+
+.divider {
+  width: 5px;
+  display: inline;
+}
+
+.panels {
+  font-family: 'Fredoka One', cursive;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  color: white;
+}
+
+.panel {
+  display: inline;
+  width: 50%;
+  height: 100%;
+}
+
+.panel-1 {
+  background-color: #59616b;
+}
+
+.panel-2 {
+  background-color: #4c5766;
+}
+
+.vs {
+  position: absolute;
+  height: 3.125rem;
+  width: 3.125rem;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  display: table;
+  text-transform: uppercase;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.vs-text {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.name {
+  font-size: 8vh;
+}
+
+.number {
+  font-size: 6vh;
+}
+
+#higherBtn {
+  color: white;
+  border-width: 3px;
+  background-color: transparent;
+  margin-bottom: 15px;
+  width: 150px;
+  height: 50px;
+  border-radius: 3rem;
+}
+
+#higher-txt {
+  position: relative;
+  display: block;
+}
+
+#higherBtn:hover #higher-txt {
+  padding-bottom: 5px;
+  color: black;
+  transition-duration: 0.2s;
+}
+
+#higherBtn:hover {
+  background-color: white;
+  transition-duration: 0.4s;
+}
+
+#lowerBtn {
+  color: white;
+  border-width: 3px;
+  background-color: transparent;
+  margin-bottom: 15px;
+  width: 150px;
+  height: 50px;
+  border-radius: 3rem;
+}
+
+#lower-txt {
+  position: relative;
+  display: block;
+}
+
+#lowerBtn:hover #lower-txt {
+  padding-top: 5px;
+  color: black;
+  transition-duration: 0.2s;
+}
+
+#lowerBtn:hover {
+  background-color: white;
+  transition-duration: 0.4s;
+}
+
+.hide-num {
+  display:none;
 }

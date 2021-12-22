@@ -10,8 +10,8 @@ class Ingame extends React.Component {
     // roundState should have: new, win, lose
     this.state = {
       roundState: "new",
-      currentWord: "towel",
-      oldWord: "wallet",
+      currentWord: "Towel",
+      oldWord: "Wallet",
     };
     this.handleAnswer = this.handleAnswer.bind(this);
   }
@@ -27,19 +27,19 @@ class Ingame extends React.Component {
   // I need the data first before I start working
   data = [
     {
-      "name": "towel",
+      "name": "Towel",
       "number": 5458
     },
     {
-      "name": "window",
+      "name": "Window",
       "number": 106280
     },
     {
-      "name": "wallet",
+      "name": "Wallet",
       "number": 54720
     },
     {
-      "name": "blanket",
+      "name": "Blanket",
       "number": 9480
     }
   ];
@@ -72,6 +72,7 @@ class Ingame extends React.Component {
 
   handleAnswer(e) {
     let answer = e.currentTarget.value;
+    document.querySelector('.hide-num').style.display = 'block';
     this.setState(prevState => {
       if (this.correct(answer, prevState.oldWord, prevState.currentWord)) {
         let genNewWord = this.getNewWord();
@@ -101,9 +102,15 @@ class Ingame extends React.Component {
       return (
         <div>
           <Scorebar highscore={this.props.highscore} score={this.props.currentscore}/>
-          <Panel name={this.state.oldWord} number={this.getNumber(this.state.oldWord)} current={false} handleAnswer={this.handleAnswer}/>
-          <Panel name={this.state.currentWord} number={this.getNumber(this.state.currentWord)} current={true} handleAnswer={this.handleAnswer}/>
-          <h1>In Game!!!</h1>
+          <div className='vs'>
+            <div className='vs-text'>
+              vs
+            </div>
+          </div>
+          <div className='panels d-flex'>
+            <Panel name={this.state.oldWord} number={this.getNumber(this.state.oldWord)} current={false} handleAnswer={this.handleAnswer}/>
+            <Panel name={this.state.currentWord} oldWord={this.state.oldWord} number={this.getNumber(this.state.currentWord)} current={true} handleAnswer={this.handleAnswer}/>
+          </div>
         </div>
         
       );
