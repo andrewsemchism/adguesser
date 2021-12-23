@@ -11,7 +11,7 @@ class Panel extends React.Component {
     let imageName = this.props.name.replace(/\s+/g, '-').toLowerCase();
     if (this.props.current) {
       return (
-        <div className='panel panel-2 d-flex flex-column align-items-center justify-content-center' style={{backgroundImage: 'url(' + require('./images/' + imageName + '.png') + ')'}}>
+        <div className='panel panel-2 d-flex flex-column align-items-center justify-content-center' style={{backgroundImage: 'url(' + require('./images/' + imageName + '.jpg') + ')'}}>
           <h2 className='name'>"{this.props.name}"</h2> 
           <p>has</p>
           <div id='reveal' className='flex-column align-items-center justify-content-center'>
@@ -27,7 +27,7 @@ class Panel extends React.Component {
       );
     } else {
       return (
-        <div className='panel panel-1 d-flex flex-column align-items-center justify-content-center' style={{backgroundImage: 'url(' + require('./images/' + imageName + '.png') + ')'}}>
+        <div className='panel panel-1 d-flex flex-column align-items-center justify-content-center' style={{backgroundImage: 'url(' + require('./images/' + imageName + '.jpg') + ')'}}>
             <h2 className='name'>"{this.props.name}"</h2>
             <p>has</p>
             <h3 className='number'>{this.formatNumer(this.props.number)}</h3>

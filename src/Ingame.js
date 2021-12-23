@@ -35,6 +35,130 @@ class Ingame extends React.Component {
     {
       "name": "Blanket",
       "number": 9480
+    },
+    {
+      "name": "Canoe",
+      "number": 1640
+    },
+    {
+      "name": "Backpack",
+      "number": 11080
+    },
+    {
+      "name": "Calculator",
+      "number": 2841
+    },
+    {
+      "name": "Barbie",
+      "number": 10840
+    },
+    {
+      "name": "Space Heater",
+      "number": 875
+    },
+    {
+      "name": "Boots",
+      "number": 71360
+    },
+    {
+      "name": "Foosball",
+      "number": 507
+    },
+    {
+      "name": "Speakers",
+      "number": 44680
+    },
+    {
+      "name": "Desk",
+      "number": 30055
+    },
+    {
+      "name": "Blender",
+      "number": 8800
+    },
+    {
+      "name": "Fridge",
+      "number": 13963
+    },
+    {
+      "name": "Oven",
+      "number": 22076
+    },
+    {
+      "name": "Snowboard",
+      "number": 18120
+    },
+    {
+      "name": "Xbox One",
+      "number": 12960
+    },
+    {
+      "name": "Couch",
+      "number": 23937
+    },
+    {
+      "name": "Chromebook",
+      "number": 658
+    },
+    {
+      "name": "Skates",
+      "number": 28440
+    },
+    {
+      "name": "Tv",
+      "number": 68680
+    },
+    {
+      "name": "Guitar",
+      "number": 24040
+    },
+    {
+      "name": "Drone",
+      "number": 3280
+    },
+    {
+      "name": "Projector",
+      "number": 5478
+    },
+    {
+      "name": "Alarm Clock",
+      "number": 2528
+    },
+    {
+      "name": "Vase",
+      "number": 19400
+    },
+    {
+      "name": "Turntable",
+      "number": 790
+    },
+    {
+      "name": "Lighter",
+      "number": 3621
+    },
+    {
+      "name": "Pinball Machine",
+      "number": 610
+    },
+    {
+      "name": "Christmas Tree",
+      "number": 9160
+    },
+    {
+      "name": "Bike",
+      "number": 51120
+    },
+    {
+      "name": "Lego",
+      "number": 39080
+    },
+    {
+      "name": "Fish Tank",
+      "number": 4280
+    },
+    {
+      "name": "Firewood",
+      "number": 10360
     }
   ];
 
