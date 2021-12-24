@@ -12,8 +12,8 @@ class Ingame extends React.Component {
     // roundState should have: new, win, lose
     this.state = {
       roundState: "new",
-      currentWord: "Towel",
-      oldWord: "Wallet",
+      currentWord: this.getNewWord(),
+      oldWord: this.getNewWord(),
       vs: "vs"
     };
     this.handleAnswer = this.handleAnswer.bind(this);
