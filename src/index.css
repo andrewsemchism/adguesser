@@ -63,16 +63,17 @@ body {
   margin-left: 5px;
 }
 
-#play-btn:hover #play-symbol {
-  transition: all 0.2s ease-in-out;
-  margin-left: 30px
+@media (hover: hover) {
+  #play-btn:hover #play-symbol {
+    transition: all 0.2s ease-in-out;
+    margin-left: 30px
+  }
+  
+  #play-btn:hover #play-txt {
+    transition: all 0.2s ease-in-out;
+    margin-left: 30px
+  }
 }
-
-#play-btn:hover #play-txt {
-  transition: all 0.2s ease-in-out;
-  margin-left: 30px
-}
-
 
 
 /* Homepage Mobile */
@@ -227,15 +228,17 @@ body {
   display: block;
 }
 
-#higherBtn:hover #higher-txt {
-  padding-bottom: 5px;
-  color: black;
-  transition-duration: 0.2s;
-}
-
-#higherBtn:hover {
-  background-color: white;
-  transition-duration: 0.4s;
+@media (hover: hover) {
+  #higherBtn:hover #higher-txt {
+    padding-bottom: 5px;
+    color: black;
+    transition-duration: 0.2s;
+  }
+  
+  #higherBtn:hover {
+    background-color: white;
+    transition-duration: 0.4s;
+  }
 }
 
 #lowerBtn {
@@ -253,15 +256,17 @@ body {
   display: block;
 }
 
-#lowerBtn:hover #lower-txt {
-  padding-top: 5px;
-  color: black;
-  transition-duration: 0.2s;
-}
-
-#lowerBtn:hover {
-  background-color: white;
-  transition-duration: 0.4s;
+@media (hover: hover) {
+  #lowerBtn:hover #lower-txt {
+    padding-top: 5px;
+    color: black;
+    transition-duration: 0.2s;
+  }
+  
+  #lowerBtn:hover {
+    background-color: white;
+    transition-duration: 0.4s;
+  }
 }
 
 #reveal {
@@ -297,11 +302,6 @@ body {
     80% { transform: scale(1.8) translate(-25px, -20px);}
     100% { transform: scale(1); }
   }
-
-  .btn:focus {
-    outline: none;
-    box-shadow: none;
-  }
   
 }
 
@@ -320,14 +320,16 @@ body {
   margin-left: 5px;
 }
 
-#playagain-btn:hover #playagain-symbol {
-  transition: all 0.2s ease-in-out;
-  margin-left: 20px
-}
-
-#playagain-btn:hover #playagain-txt {
-  transition: all 0.2s ease-in-out;
-  margin-left: 20px
+@media (hover: hover) {
+  #playagain-btn:hover #playagain-symbol {
+    transition: all 0.2s ease-in-out;
+    margin-left: 20px
+  }
+  
+  #playagain-btn:hover #playagain-txt {
+    transition: all 0.2s ease-in-out;
+    margin-left: 20px
+  }
 }
 
 .scored {
