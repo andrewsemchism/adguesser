@@ -6,7 +6,7 @@ class Playagain extends React.Component {
   render() {
       return (
         <div className='background'>
-        <div className='logo'></div>
+        <div className='logo-small'></div>
         <h3 className='scored'>You Scored:</h3>
         <h2 className='your-score'>{this.props.currentscore}</h2>
         
