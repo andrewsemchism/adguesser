@@ -1,4 +1,3 @@
-import './Game.css';
 import Homepage from './Homepage'
 import Ingame from './Ingame'
 import Playagain from './Playagain'
