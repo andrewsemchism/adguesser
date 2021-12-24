@@ -9,11 +9,15 @@ class Ingame extends React.Component {
 
   constructor(props) {
     super(props);
-    // roundState should have: new, win, lose
+    // Get initial words
+    let currentWord = this.getNewWord([]);
+    let oldWord = this.getNewWord([currentWord]);
+    let wordBlacklist = [oldWord, currentWord];
     this.state = {
       roundState: "new",
-      currentWord: this.getNewWord(),
-      oldWord: this.getNewWord(),
+      wordBlacklist: wordBlacklist,
+      currentWord: currentWord,
+      oldWord: oldWord,
       vs: "vs"
     };
     this.handleAnswer = this.handleAnswer.bind(this);
@@ -179,8 +183,12 @@ class Ingame extends React.Component {
     }
   };
 
-  getNewWord() {
-    return this.data[Math.floor(Math.random() * this.data.length)].name;
+  getNewWord(blacklist) {
+    let newWord = this.data[Math.floor(Math.random() * this.data.length)].name;
+    while (blacklist.includes(newWord)) {
+      newWord = this.data[Math.floor(Math.random() * this.data.length)].name;
+    }
+    return newWord;
   }
 
   getNumber(word) {
@@ -230,10 +238,16 @@ class Ingame extends React.Component {
       document.querySelector('#show-buttons').style.display = 'flex';
       this.setState(prevState => {
         if (this.correct(answer, prevState.oldWord, prevState.currentWord)) {
-          let genNewWord = this.getNewWord();
+          let blacklist = prevState.wordBlacklist;
+          let genNewWord = this.getNewWord(blacklist);
+          blacklist.unshift(genNewWord);
+          if (blacklist.length > 8) {
+            blacklist.pop()
+          }
           this.props.incrementScore()
           return {
             roundState: "new",
+            wordBlacklist: blacklist,
             oldWord: prevState.currentWord,
             currentWord: genNewWord,
             vs: "vs"
