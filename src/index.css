@@ -119,6 +119,14 @@ body {
   100% { transform: scale(1); }
 }
 
+/* Scoreboard CSS Mobile */
+
+@media screen and (max-width: 480px) {
+  .scorebar {
+    width: 95%;
+  }
+}
+
 /* Ingame */
 
 .divider {
@@ -197,6 +205,7 @@ body {
 
 .name {
   font-size: 8vh;
+  text-align: center;
 }
 
 .number {
@@ -273,6 +282,24 @@ body {
   z-index: 1;
 }
 
+/* Ingame Mobile */
+
+@media screen and (max-width: 480px) {
+  .panel {
+    width: 100%;
+    height: 50%;
+  }
+  .name {
+    font-size: 5vh;
+  }
+  @keyframes grow {
+    0% { transform: scale(1); }
+    80% { transform: scale(1.8) translate(-25px, -20px);}
+    100% { transform: scale(1); }
+  }
+  
+}
+
 /* Play Again Page */
 
 #playagain-btn {
@@ -296,4 +323,23 @@ body {
 #playagain-btn:hover #playagain-txt {
   transition: all 0.2s ease-in-out;
   margin-left: 20px
+}
+
+.scored {
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  font-size: 2rem;
+}
+
+.your-score {
+  font-family: 'Fredoka One', cursive;
+  color: rgb(228, 66, 66);
+  font-size: 3.5rem;
+}
+
+.header-playagain {
+  font-family: 'Fredoka One', cursive;
+  color: white;
+  font-size: 2rem;
+  padding-bottom: 2rem;
 }

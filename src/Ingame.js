@@ -257,6 +257,19 @@ class Ingame extends React.Component {
   // section 1 with the first image and name - props: image, name, numberOfAds, bool showHigherLowerBtn, click handler
   // section 2 with the second image and name
   render() {
+    if(window.matchMedia("(max-width: 480px)").matches) {
+      return (
+        <div>
+          <Scorebar highscore={this.props.highscore} score={this.props.currentscore}/>
+          <Vs view={this.state.vs}></Vs>
+          <div className='panels d-flex flex-column'>
+            <div id="dimmer"></div>
+            <Panel name={this.state.oldWord} number={this.getNumber(this.state.oldWord)} current={false} handleAnswer={this.handleAnswer}/>
+            <Panel name={this.state.currentWord} oldWord={this.state.oldWord} number={this.getNumber(this.state.currentWord)} current={true} handleAnswer={this.handleAnswer}/>
+          </div>
+        </div>
+      );
+    } else {
       return (
         <div>
           <Scorebar highscore={this.props.highscore} score={this.props.currentscore}/>
@@ -267,8 +280,9 @@ class Ingame extends React.Component {
             <Panel name={this.state.currentWord} oldWord={this.state.oldWord} number={this.getNumber(this.state.currentWord)} current={true} handleAnswer={this.handleAnswer}/>
           </div>
         </div>
-        
       );
+    }
+      
   }
 }
 
