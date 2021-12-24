@@ -297,6 +297,11 @@ body {
     80% { transform: scale(1.8) translate(-25px, -20px);}
     100% { transform: scale(1); }
   }
+
+  .btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
   
 }
 
