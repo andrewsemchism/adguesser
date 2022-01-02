@@ -19,8 +19,8 @@ class Panel extends React.Component {
             <p>ads posted</p>
           </div>
           <div id='show-buttons' className='flex-column align-items-center justify-content-center'>
-            <button value="higher" id='higherBtn' className='btn btn-light' onClick={this.props.handleAnswer}><span id='higher-txt'>Higher ▲</span></button>
-            <button value="lower" id='lowerBtn' className='btn btn-light' onClick={this.props.handleAnswer}><span id='lower-txt'>Lower ▼</span></button>
+            <button value="higher" id='higherBtn' className='btn btn-light' onClick={this.props.handleAnswer}><span id='higher-txt'>More ▲</span></button>
+            <button value="lower" id='lowerBtn' className='btn btn-light' onClick={this.props.handleAnswer}><span id='lower-txt'>Fewer ▼</span></button>
             <p id='ads-than'>ads than {this.props.oldWord}</p>
           </div>
         </div>
