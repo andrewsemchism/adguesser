@@ -4,7 +4,7 @@ Ad Guesser is a guessing game about Kijiji ads. (Kijiji is a Canadian online cla
 
 Players must guess the number of ads a given item has on Kijiji.
 
-### Play [here](http://adguesser.herokuapp.com/).
+<!-- ### Play [here](http://adguesser.herokuapp.com/). -->
 
 
 
